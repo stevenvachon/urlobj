@@ -1,0 +1,43 @@
+{
+  "name": "urlobj",
+  "description": "Additional utilities for URL resolution and parsing.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stevenvachon/urlobj",
+  "author": {
+    "name": "Steven Vachon",
+    "email": "contact@svachon.com",
+    "url": "http://www.svachon.com/"
+  },
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevenvachon/urlobj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stevenvachon/urlobj/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "scripts": {
+    "test": "mocha test/ --reporter spec --check-leaks --bail"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "uri",
+    "url"
+  ]
+}
