@@ -1,0 +1,23 @@
+{
+  "name": "urlobj",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stevenvachon/urlobj",
+  "authors": [
+    "Steven Vachon <contact@svachon.com>"
+  ],
+  "description": "Additional utilities for URL resolution and parsing.",
+  "main": "browser/urlobj.js",
+  "keywords": [
+    "uri",
+    "url"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "lib",
+    "node_modules",
+    "package.json",
+    "test"
+  ]
+}

@@ -1,4 +1,6 @@
 "use strict";
+var areSameDir    = require("../lib/areSameDir");
+var areSameQuery  = require("../lib/areSameQuery");
 var joinDirs      = require("../lib/joinDirs");
 var joinQuery     = require("../lib/joinQuery");
 var normalizeDirs = require("../lib/normalizeDirs");
@@ -11,6 +13,100 @@ var expect = require("chai").expect;
 
 describe("Independents", function()
 {
+	it("areSameDir", function(done)
+	{
+		var dir1,dir2;
+		
+		dir1 = ["dir-relative","dir","to"];
+		dir2 = ["dir-relative","dir","to"];
+		expect( areSameDir(dir1,false,dir2,false) ).to.be.true;
+		
+		dir1 = ["root-dir-relative","dir","to"];
+		dir2 = ["root-dir-relative","dir","to"];
+		expect( areSameDir(dir1,true,dir2,true) ).to.be.true;
+		
+		dir1 = ["dir","to"];
+		dir2 = ["dir","to"];
+		expect( areSameDir(dir1,true,dir2,false) ).to.be.false;
+		
+		dir1 = ["dir","to"];
+		dir2 = ["dir","to"];
+		expect( areSameDir(dir1,false,dir2,true) ).to.be.false;
+		
+		dir1 = ["dir-relative1","dir","to"];
+		dir2 = ["dir-relative2","dir","to"];
+		expect( areSameDir(dir1,false,dir2,false) ).to.be.false;
+		
+		dir1 = ["dir-relative1","dir","to"];
+		dir2 = ["dir-relative2","dir","to"];
+		expect( areSameDir(dir1,true,dir2,true) ).to.be.false;
+		
+		dir1 = ["dir-relative","dir","to1"];
+		dir2 = ["dir-relative","dir","to2"];
+		expect( areSameDir(dir1,false,dir2,false) ).to.be.false;
+		
+		dir1 = ["dir-relative","dir","to1"];
+		dir2 = ["dir-relative","dir","to2"];
+		expect( areSameDir(dir1,false,dir2,true) ).to.be.false;
+		
+		done();
+	});
+	
+	
+	
+	it("areSameQuery", function(done)
+	{
+		var query1,query2;
+		
+		query1 = { query:["1","2"], var2:"" };
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.true;
+		
+		query1 = { query:["2","1"], var2:"" };
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.true;
+		
+		query1 = { query:["1"], var2:"" };
+		query2 = { query:["2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = { query:["1","2"], var2:"" };
+		query2 = { query:["1","3"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = { query:["1","2"], var2:"asdf" };
+		query2 = { query:["1","2"], var2:"asdf" };
+		expect( areSameQuery(query1,query2) ).to.be.true;
+		
+		query1 = { query:["1","2"], var2:"asdf" };
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = { query:["1","2"], var2:"" };
+		query2 = { query:["1","2"] };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = { query:"1", var2:"" };
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = { var2:"" };
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = {};
+		query2 = { query:["1","2"], var2:"" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
+		query1 = {};
+		query2 = {};
+		expect( areSameQuery(query1,query2) ).to.be.true;
+		
+		done();
+	});
+	
+	
+	
 	it("joinDirs", function(done)
 	{
 		expect( joinDirs([]) ).to.equal("");
