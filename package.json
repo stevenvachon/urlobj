@@ -22,7 +22,10 @@
       "url": "http://opensource.org/licenses/mit-license.php"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "is-object": "^1.0.1",
+    "is-string": "^1.0.4"
+  },
   "devDependencies": {
     "browserify": "^9.0.8",
     "chai": "^2.2.0",
