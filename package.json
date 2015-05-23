@@ -1,7 +1,7 @@
 {
   "name": "urlobj",
   "description": "Additional utilities for URL resolution and parsing.",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "homepage": "https://github.com/stevenvachon/urlobj",
   "author": {
     "name": "Steven Vachon",
@@ -27,10 +27,10 @@
     "is-string": "^1.0.4"
   },
   "devDependencies": {
-    "browserify": "^9.0.8",
-    "chai": "^2.2.0",
-    "mocha": "^2.2.4",
-    "uglify-js": "^2.4.20"
+    "browserify": "^10.2.1",
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5",
+    "uglify-js": "^2.4.23"
   },
   "engines": {
     "node": ">= 0.10"
