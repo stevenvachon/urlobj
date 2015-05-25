@@ -70,6 +70,11 @@ describe("parsePath", function()
 		expectedFilename = null;
 		expect( parsePath(path) ).to.deep.equal({ dir:expectedDir, filename:expectedFilename, leadingSlash:false });
 		
+		path = null;
+		expectedDir = [];
+		expectedFilename = null;
+		expect( parsePath(path) ).to.deep.equal({ dir:expectedDir, filename:expectedFilename, leadingSlash:false });
+		
 		path = "/";
 		expectedDir = [];
 		expectedFilename = null;

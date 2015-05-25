@@ -42,6 +42,16 @@ describe("areSameDir", function()
 		dir2 = ["dir-relative","dir","to2"];
 		expect( areSameDir(dir1,false,dir2,true) ).to.be.false;
 		
+		// Empty array with no leading slash is an empty path (relative)
+		dir1 = ["dir-relative","dir","to1"];
+		dir2 = [];
+		expect( areSameDir(dir1,false,dir2,false) ).to.be.true;
+		
+		// Empty array with no leading slash is an empty path (relative)
+		dir1 = ["dir-relative","dir","to1"];
+		dir2 = [];
+		expect( areSameDir(dir1,true,dir2,false) ).to.be.true;
+		
 		done();
 	});
 });
