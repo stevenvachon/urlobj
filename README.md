@@ -1,4 +1,5 @@
-# urlobj [![NPM Version](http://badge.fury.io/js/urlobj.svg)](http://badge.fury.io/js/urlobj) [![Build Status](https://secure.travis-ci.org/stevenvachon/urlobj.svg)](http://travis-ci.org/stevenvachon/urlobj)  [![Dependency Status](https://david-dm.org/stevenvachon/urlobj.svg)](https://david-dm.org/stevenvachon/urlobj)
+# urlobj [![NPM Version][npm-image]][npm-url] [![Bower Version][bower-image]][bower-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][david-image]][david-url]
+
 > Performant utilities for URL resolution and parsing built on core [url](https://nodejs.org/api/url.html).
 
 This module provides many tools for working with Objects parsed with [`url.parse()`](https://nodejs.org/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost). This performs faster because it avoids the need to constantly reparse URL Strings during multiple operations.
@@ -53,16 +54,26 @@ The following methods will accept URLs as Strings and/or Objects.
 ### minify(url, options)
 Normalizes and minifies a URL with the following options:
 
+* `clone`; when set to `true`, the function will return a copy of `url` instead of mutating the original.
 * `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
 * `directoryIndexes`; a list of filenames that are expected to be treated as directory indexes. Default value: `["index.html"]`.
 * `removeAuth`; when set to `true`, it will remove authentication information. Default value: `false`.
 * `removeDefaultPorts`; when set to `true`, it will remove ports that match any found in `defaultPorts`. Default value: `true`.
 * `removeDirectoryIndexes`; when set to `true`, it will remove filenames that match any found in `directoryIndexes`. Default value: `true`.
-* `removeEmptyQueries`; when set to `true`, it will remove empty query data such as `?`, `?var=` and `&=`. Default value: `false`.
-* `removeRootTrailingSlash`; when set to `true`, it will remove trailing slashes such as `http://domain.com/?var`. Default value: `true`.
+* `removeEmptyQueries`; when set to `true`, it will remove empty query data such as `"?"`, `"?var="` and `"&="`. Default value: `false`.
+* `removeRootTrailingSlash`; when set to `true`, it will remove trailing slashes such as `"http://domain.com/?var"`. Default value: `true`.
 
-### normalize(url)
-Resolves dot segments (`"../"`, `"./"`) in a URL's path and removes the value of `port`.
+If `url` is an Object, it will be mutated/modified.
+
+### normalize(url, options)
+Resolves dot segments (`"../"`, `"./"`) in a URL's path, removes port if it is default and removes empty queries (`"path/?"`).
+
+Options:
+
+* `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
+* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a url instead of a path. Default value: `false`.
+
+If `url` is an Object, it will be mutated/modified.
 
 ### parse(url, parseQueryString, slashesDenoteHost)
 ### parse(url, options)
@@ -71,7 +82,9 @@ Parses (or re-parses) a URL into an Object containing its URL components with th
 * `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
 * `directoryIndexes`; a list of filenames that are expected to be treated as directory indexes. Default value: `["index.html"]`.
 * `parseQueryString`; when set to `true`, it will parse the query string into an object. Default value: `false`.
-* `slashesDenoteHost`; when set to `true`, it will parse "//domain.com/" as a url instead of a path. Default value: `false`.
+* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a url instead of a path. Default value: `false`.
+
+If `url` is an Object, it will be mutated/modified.
 
 ### relation(url1, url2)
 Returns a Number defining the relation between two URLs. That number corresponds to the value of a URL component in [`components`](#components).
@@ -86,8 +99,12 @@ if (relation >= urlobj.components.HOST) {
 }
 ```
 
-### resolve(from, to)
-Resolves a URL with a base URL like a browser would for an anchor tag.
+### resolve(from, to, options)
+Resolves a URL with a base URL like a browser would for an anchor tag. If `to` is an Object, it will be mutated/modified.
+
+Options:
+
+* `ignoreWww`; when set to `true`, it will treat `"www.domain.com"` and `"domain.com"` as the same host. Default value: `false`.
 
 ## Exposed Internal Methods
 
@@ -103,7 +120,7 @@ Joins all directories of a directory Array into a String. `leadingSlash` denotes
 ### joinQuery(queryObj, skipEmpties)
 Joins all keys of an Object into a query String.
 
-When `skipEmpties` is `true`, empty query data such as `?var=` and `&=` will be excluded. Its default value is `false`.
+When `skipEmpties` is `true`, empty query data such as `"?var="` and `"&="` will be excluded. Its default value is `false`.
 
 ### normalizeDirs(dirArray, leadingSlash)
 Resolves dot segments (`"../"`, `"./"`) in a directory Array and returns a new Array (within an Object). `leadingSlash` denotes that the path is absolute and not relative. This method will attempt to resolve to a root. If none is found, the parent-most dot segment will remain.
@@ -121,3 +138,13 @@ Parses a path String into an Object containing a directory Array and a filename 
 
 ### resolveDirs(fromDirArray, fromLeadingSlash, toDirArray, toLeadingSlash)
 Resolves a base directory Array to another directory Array and returns a new, normalized Array (within an Object). `fromLeadingSlash` and `toLeadingSlash` denote that the corresponding path is absolute and not relative.
+
+
+[npm-image]: https://img.shields.io/npm/v/urlobj.svg
+[npm-url]: https://npmjs.org/package/urlobj
+[bower-image]: https://img.shields.io/bower/v/urlobj.svg
+[bower-url]: https://github.com/stevenvachon/urlobj
+[travis-image]: https://img.shields.io/travis/stevenvachon/urlobj.svg
+[travis-url]: https://travis-ci.org/stevenvachon/urlobj
+[david-image]: https://img.shields.io/david/stevenvachon/urlobj.svg
+[david-url]: https://david-dm.org/stevenvachon/urlobj

@@ -8,7 +8,7 @@ var expect = require("chai").expect;
 
 describe("urlRelation", function()
 {
-	// TODO :: test all url variations
+	// TODO :: test all url variations (including strings)
 	it("should work", function(done)
 	{
 		var urlObj1,urlObj2
@@ -68,6 +68,11 @@ describe("urlRelation", function()
 		urlObj1 = parseUrl("https://fakeurl.com/dir1/dir2/index.html");
 		urlObj2 = parseUrl("http://fakeurl.com/dir1/dir2/index.html");
 		expect( urlRelation(urlObj1,urlObj2) ).to.equal(UrlComponents.NOTHING);
+		
+		// Will not resolve paths because there is no `from` and `to`
+		urlObj1 = parseUrl("https://fakeurl.com/index.html");
+		urlObj2 = parseUrl("../../../index.html");
+		expect( urlRelation(urlObj1,urlObj2) ).to.equal(UrlComponents.AUTH);
 		
 		done();
 	});

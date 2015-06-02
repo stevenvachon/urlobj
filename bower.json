@@ -1,7 +1,7 @@
 {
   "name": "urlobj",
-  "version": "0.0.1",
   "homepage": "https://github.com/stevenvachon/urlobj",
+  "license": "MIT",
   "authors": [
     "Steven Vachon <contact@svachon.com>"
   ],
@@ -11,9 +11,7 @@
     "uri",
     "url"
   ],
-  "license": "MIT",
   "ignore": [
-    "**/.*",
     "bower_components",
     "lib",
     "node_modules",
