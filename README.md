@@ -2,7 +2,7 @@
 
 > Performant utilities for URL resolution and parsing built on core [url](https://nodejs.org/api/url.html).
 
-This module provides many tools for working with Objects parsed with [`url.parse()`](https://nodejs.org/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost). This performs faster because it avoids the need to constantly reparse URL Strings during multiple operations.
+This module provides many tools for working with Objects parsed with [`url.parse()`](https://nodejs.org/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost). It also performs faster because it avoids the need to constantly reparse URL Strings during multiple operations.
 
 ## Constants
 
@@ -104,6 +104,7 @@ Resolves a URL with a base URL like a browser would for an anchor tag. If `to` i
 
 Options:
 
+* `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
 * `ignoreWww`; when set to `true`, it will treat `"www.domain.com"` and `"domain.com"` as the same host. Default value: `false`.
 
 ## Exposed Internal Methods

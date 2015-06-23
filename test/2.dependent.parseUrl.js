@@ -1,6 +1,7 @@
 "use strict";
 var chai = require("chai");
 var parseUrl = require("../lib/parseUrl");
+var UrlType  = require("../lib/UrlType");
 var urllib = require("url");
 
 var expect = chai.expect;
@@ -34,6 +35,7 @@ function url0_noquery(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({ query:["1","2"], var2:"" });
+	expect(obj.extra.type).to.equal(UrlType.ABSOLUTE);
 }
 
 function url0_query(str, obj)
@@ -57,6 +59,7 @@ function url0_query(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal(obj.query);
+	expect(obj.extra.type).to.equal(UrlType.ABSOLUTE);
 }
 
 
@@ -82,6 +85,7 @@ function url1_noquery(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({ query:["1","2"], var2:"" });
+	expect(obj.extra.type).to.equal(UrlType.PROTOCOL_RELATIVE);
 }
 
 function url1_noslash_noquery(str, obj)
@@ -105,6 +109,7 @@ function url1_noslash_noquery(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({ query:["1","2"], var2:"" });
+	expect(obj.extra.type).to.equal(UrlType.ROOT_RELATIVE);
 }
 
 function url1_noslash_query(str, obj)
@@ -128,6 +133,7 @@ function url1_noslash_query(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal(obj.query);
+	expect(obj.extra.type).to.equal(UrlType.ROOT_RELATIVE);
 }
 
 function url1_query(str, obj)
@@ -151,6 +157,7 @@ function url1_query(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal(obj.query);
+	expect(obj.extra.type).to.equal(UrlType.PROTOCOL_RELATIVE);
 }
 
 
@@ -176,6 +183,7 @@ function url2_noquery(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({});
+	expect(obj.extra.type).to.equal(UrlType.ROOT_RELATIVE);
 }
 
 function url2_query(str, obj)
@@ -199,6 +207,7 @@ function url2_query(str, obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal(obj.query);
+	expect(obj.extra.type).to.equal(UrlType.ROOT_RELATIVE);
 }
 
 

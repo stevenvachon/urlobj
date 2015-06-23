@@ -80,6 +80,11 @@ describe("resolveDirs", function()
 		expectedDir = ["root-dir-relative1","dir1","to1"];
 		expect( resolveDirs(fromDir,true,toDir,false) ).to.deep.equal({ dir:expectedDir, leadingSlash:true });
 		
+		fromDir     = ["root-dir-relative1","dir1","to1"];
+		toDir       = [];
+		expectedDir = [];
+		expect( resolveDirs(fromDir,true,toDir,true) ).to.deep.equal({ dir:expectedDir, leadingSlash:true });
+		
 		done();
 	});
 });

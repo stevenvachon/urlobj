@@ -1,6 +1,7 @@
 "use strict";
 var normalizeUrl = require("../lib/normalizeUrl");
 var parseUrl     = require("../lib/parseUrl");
+var UrlType      = require("../lib/UrlType");
 var expect = require("chai").expect;
 var urllib = require("url");
 
@@ -27,6 +28,7 @@ function urlTest1(obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({ query:["1","2"], var2:"" });
+	expect(obj.extra.type).to.equal(UrlType.ABSOLUTE);
 }
 
 
@@ -52,6 +54,7 @@ function urlTest2(obj)
 	expect(obj.extra.filename).to.equal("filename.html");
 	expect(obj.extra.filenameIsIndex).to.be.false;
 	expect(obj.extra.query).to.deep.equal({});
+	expect(obj.extra.type).to.equal(UrlType.ABSOLUTE);
 }
 
 
