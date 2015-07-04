@@ -6,25 +6,24 @@ This module provides many tools for working with Objects parsed with [`url.parse
 
 ## Constants
 
-### components
-
+### component
 URL components used in comparison operations.
 
-* `components.NOTHING`
-* `components.PROTOCOL` or `components.SCHEME`
-* `components.TLD`
-* `components.DOMAIN`
-* `components.SUB_DOMAIN`
-* `components.HOSTNAME`
-* `components.PORT`
-* `components.HOST`
-* `components.AUTH`
-* `components.DIRECTORY`
-* `components.FILENAME`
-* `components.PATHNAME`
-* `components.QUERY` or `components.SEARCH`
-* `components.PATH`
-* `components.HASH` or `components.FRAGMENT`
+* `component.NOTHING`
+* `component.PROTOCOL` or `components.SCHEME`
+* `component.TLD`
+* `component.DOMAIN`
+* `component.SUB_DOMAIN`
+* `component.HOSTNAME`
+* `component.PORT`
+* `component.HOST`
+* `component.AUTH`
+* `component.DIRECTORY`
+* `component.FILENAME`
+* `component.PATHNAME`
+* `component.QUERY` or `components.SEARCH`
+* `component.PATH`
+* `component.HASH` or `components.FRAGMENT`
 
 ```
                                     HOST                         PATH
@@ -47,9 +46,25 @@ PROTOCOL              SUB_DOMAIN |    TLD      DIRECTORY   FILENAME
 * `TLD` is prioritized *before* `DOMAIN` because matching a domain on a different top-level domain is pointless
 * `SUB_DOMAIN` is prioritized *after* `DOMAIN`
 
-## Methods
+### type
+URL types used for discerning input.
+
+* `type.UNKNOWN`
+* `type.ABSOLUTE`
+* `type.PROTOCOL_RELATIVE`
+* `type.ROOT_RELATIVE`
+* `type.DIRECTORY_RELATIVE`
+* `type.FILENAME_RELATIVE`
+* `type.QUERY_RELATIVE`
+* `type.EMPTY`
+* `type.HASH_RELATIVE`
+
+## Functions
 
 The following methods will accept URLs as Strings and/or Objects.
+
+### format(urlObj)
+Converts a URL `Object` to a formatted URL `String`. Is merely an alias to core [`url.format()`](https://nodejs.org/api/url.html#url_url_format_urlobj).
 
 ### minify(url, options)
 Normalizes and minifies a URL with the following options:
@@ -71,7 +86,7 @@ Resolves dot segments (`"../"`, `"./"`) in a URL's path, removes port if it is d
 Options:
 
 * `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
-* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a url instead of a path. Default value: `false`.
+* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a URL instead of a path. Default value: `false`.
 
 If `url` is an Object, it will be mutated/modified.
 
@@ -82,7 +97,7 @@ Parses (or re-parses) a URL into an Object containing its URL components with th
 * `defaultPorts`; a map of default ports for various protocols. Default value: `{ftp:21, gopher:70, http:80, https:443}`.
 * `directoryIndexes`; a list of filenames that are expected to be treated as directory indexes. Default value: `["index.html"]`.
 * `parseQueryString`; when set to `true`, it will parse the query string into an object. Default value: `false`.
-* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a url instead of a path. Default value: `false`.
+* `slashesDenoteHost`; when set to `true`, it will parse `"//domain.com/"` as a URL instead of a path. Default value: `false`.
 
 If `url` is an Object, it will be mutated/modified.
 

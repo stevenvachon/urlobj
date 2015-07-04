@@ -1,6 +1,6 @@
 {
   "name": "urlobj",
-  "description": "Additional utilities for URL resolution and parsing.",
+  "description": "Performant utilities for URL resolution and parsing built on core url.",
   "version": "0.0.7",
   "homepage": "https://github.com/stevenvachon/urlobj",
   "author": {
