@@ -2,6 +2,7 @@
   "name": "urlobj",
   "description": "Performant utilities for URL resolution and parsing built on core url.",
   "version": "0.0.7",
+  "license": "MIT",
   "homepage": "https://github.com/stevenvachon/urlobj",
   "author": {
     "name": "Steven Vachon",
@@ -16,22 +17,16 @@
   "bugs": {
     "url": "https://github.com/stevenvachon/urlobj/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/mit-license.php"
-    }
-  ],
   "dependencies": {
     "is-object": "^1.0.1",
     "is-string": "^1.0.4",
-    "object-assign": "^3.0.0"
+    "object-assign": "^4.0.1"
   },
   "devDependencies": {
-    "browserify": "^10.2.4",
-    "chai": "^3.0.0",
-    "mocha": "^2.2.5",
-    "uglify-js": "^2.4.23"
+    "browserify": "^11.1.0",
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2",
+    "uglify-js": "^2.4.24"
   },
   "engines": {
     "node": ">= 0.10"
@@ -41,7 +36,8 @@
     "test": "mocha test/ --reporter spec --check-leaks --bail"
   },
   "files": [
-    "lib"
+    "lib",
+    "license"
   ],
   "keywords": [
     "uri",
