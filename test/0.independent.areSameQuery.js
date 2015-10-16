@@ -54,6 +54,10 @@ describe("areSameQuery", function()
 		query2 = {};
 		expect( areSameQuery(query1,query2) ).to.be.true;
 		
+		query1 = { var1:"123" };
+		query2 = { var1:"456" };
+		expect( areSameQuery(query1,query2) ).to.be.false;
+		
 		done();
 	});
 });
