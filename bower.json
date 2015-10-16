@@ -5,7 +5,7 @@
   "authors": [
     "Steven Vachon <contact@svachon.com>"
   ],
-  "description": "Additional utilities for URL resolution and parsing.",
+  "description": "Performant utilities for URL resolution and parsing.",
   "main": "browser/urlobj.js",
   "keywords": [
     "uri",
