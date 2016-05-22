@@ -156,6 +156,11 @@ Parses a path String into an Object containing a directory Array and a filename 
 Resolves a base directory Array to another directory Array and returns a new, normalized Array (within an Object). `fromLeadingSlash` and `toLeadingSlash` denote that the corresponding path is absolute and not relative.
 
 
+
+## Roadmap
+* Use whatwg-url package: [more info](https://github.com/jsdom/whatwg-url/issues/46#issuecomment-186714958)
+
+
 [npm-image]: https://img.shields.io/npm/v/urlobj.svg
 [npm-url]: https://npmjs.org/package/urlobj
 [bower-image]: https://img.shields.io/bower/v/urlobj.svg
