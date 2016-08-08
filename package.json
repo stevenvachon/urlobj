@@ -1,7 +1,7 @@
 {
   "name": "urlobj",
   "description": "Performant utilities for URL resolution and parsing built on core url.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "homepage": "https://github.com/stevenvachon/urlobj",
   "author": {
@@ -23,10 +23,10 @@
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
-    "browserify": "^13.0.1",
+    "browserify": "^13.1.0",
     "chai": "^3.5.0",
-    "mocha": "^2.4.5",
-    "uglify-js": "^2.6.2"
+    "mocha": "^3.0.2",
+    "uglify-js": "^2.7.0"
   },
   "engines": {
     "node": ">= 0.10"

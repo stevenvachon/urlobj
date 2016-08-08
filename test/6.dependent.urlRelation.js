@@ -53,7 +53,11 @@ describe("urlRelation", function()
 		urlObj2 = parseUrl("#hash");
 		expect( urlRelation(urlObj1,urlObj2) ).to.equal(UrlComponent.PATH);
 		
-		urlObj1 = parseUrl("http://fakeurl.com/dir1/dir2/filename.html");
+		urlObj1 = parseUrl("http://fakeurl.com/dir1/dir2/index2.html");
+		urlObj2 = parseUrl("http://fakeurl.com/dir1/dir2/index1.html");
+		expect( urlRelation(urlObj1,urlObj2) ).to.equal(UrlComponent.DIRECTORY);
+		
+		urlObj1 = parseUrl("http://fakeurl.com/dir1/dir2/index2.html");
 		urlObj2 = parseUrl("http://fakeurl.com/dir1/dir2/index.html");
 		expect( urlRelation(urlObj1,urlObj2) ).to.equal(UrlComponent.DIRECTORY);
 		
