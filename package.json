@@ -1,32 +1,21 @@
 {
   "name": "urlobj",
   "description": "Performant utilities for URL resolution and parsing built on core url.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
-  "homepage": "https://github.com/stevenvachon/urlobj",
-  "author": {
-    "name": "Steven Vachon",
-    "email": "contact@svachon.com",
-    "url": "http://www.svachon.com/"
-  },
+  "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
+  "repository": "stevenvachon/urlobj",
   "main": "lib",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stevenvachon/urlobj.git"
-  },
-  "bugs": {
-    "url": "https://github.com/stevenvachon/urlobj/issues"
-  },
   "dependencies": {
     "is-object": "^1.0.1",
     "is-string": "^1.0.4",
-    "object-assign": "^4.1.0"
+    "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "browserify": "^13.1.0",
-    "chai": "^3.5.0",
-    "mocha": "^3.0.2",
-    "uglify-js": "^2.7.0"
+    "browserify": "^16.1.1",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "uglify-js": "^3.3.14"
   },
   "engines": {
     "node": ">= 0.10"

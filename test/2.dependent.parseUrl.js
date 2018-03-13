@@ -195,7 +195,7 @@ function url2_query(str, obj)
 	expect(obj.port).to.be.null;
 	expect(obj.hostname).to.be.null;
 	expect(obj.hash).to.be.null;
-	expect(obj.search).to.equal("");
+	expect(obj.search).to.be.null;
 	expect(obj.query).to.deep.equal({});
 	expect(obj.pathname).to.equal("/dir/to/../filename.html");
 	expect(obj.path).to.equal("/dir/to/../filename.html");
